@@ -1,199 +1,357 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>영화 미학 지식 저널 및 아카이브</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
+  <title>마포 마사지 이벤트 | 로컬 형님이 추천하는 리얼 힐링 테라피 찐 꿀팁</title>
+  <meta name="description" content="마포역, 공덕역 주변 지친 직장인들을 위한 최고의 가성비 힐링 코스 추천. 10년 차 로컬 자영업자 브로의 투명 정찰제 마사지 이벤트 리얼 후기와 예약 노하우 대공개.">
+  <meta name="keywords" content="마포 마사지 이벤트, 마포역 마사지 추천, 공덕역 마사지 가격, 마포 힐링 마사지, 마포 정찰제 스파">
+  <meta name="bpaas-design-system" content="editorial-luxury">
+  <meta name="bpaas-design-theme" content="kr-gold">
+  <link rel="canonical" href="https://t3b05-mp-massage-evt.pages.dev">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="마포 마사지 이벤트 | 로컬 브로의 정찰제 가이드">
+  <meta property="og:description" content="마포역, 공덕역 주변 지친 직장인들을 위한 최고의 가성비 힐링 코스 추천. 10년 차 로컬 자영업자 브로의 투명 정찰제 마사지 이벤트 리얼 후기와 예약 노하우 대공개.">
+  <meta property="og:url" content="https://t3b05-mp-massage-evt.pages.dev">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  
   <style>
+    :root {
+      --bg-primary: #120909;
+      --bg-secondary: #220f0f;
+      --accent: #d4af37;
+      --accent-hover: #f3cf65;
+      --text-main: #fcf8f2;
+      --text-sub: #d1c7bc;
+      --border-color: rgba(212, 175, 55, 0.25);
+      --font-family: 'Noto Sans KR', sans-serif;
+    }
+    
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #0d0d0f;
-      color: #ebebeb;
-      font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
-      line-height: 1.6;
-      padding: 32px;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.75;
     }
-    .wrapper {
-      max-width: 1000px;
+    
+    .container {
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 0 20px;
     }
+    
+    /* Header */
     header {
+      background: rgba(18, 9, 9, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    header .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 60px;
+      padding: 18px 0;
     }
-    .brand {
-      font-size: 2rem;
+    
+    .logo {
+      font-size: 1.5rem;
       font-weight: 900;
-      color: #ffffff;
+      color: #fff;
       text-decoration: none;
       letter-spacing: -0.05em;
     }
+    .logo span { color: var(--accent); }
+    
     nav { display: flex; gap: 24px; }
     nav a {
-      color: #888888;
+      color: var(--text-sub);
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    nav a:hover { color: #f43f5e; }
-    main { margin-bottom: 80px; }
-    .label {
-      font-size: 0.75rem;
-      font-family: monospace;
-      color: #f43f5e;
-      font-weight: bold;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
+    nav a:hover { color: var(--accent); }
+    
+    /* Hero */
+    .hero-sec {
+      padding: 110px 0 90px 0;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+      border-bottom: 1px solid var(--border-color);
     }
-    h1 {
+    
+    .hero-sec h1 {
       font-size: 3rem;
       font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.04em;
-      color: #ffffff;
-      margin-bottom: 40px;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
-    .article-body {
+    .hero-sec p {
       font-size: 1.15rem;
-      color: #cccccc;
-      font-weight: 400;
-      max-width: 780px;
+      color: var(--text-sub);
+      max-width: 750px;
+      margin: 0 auto 30px auto;
     }
-    .article-body p { margin-bottom: 24px; }
-    .juice-link {
-      color: #ffffff;
+    
+    .phone-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, var(--accent), #aa8410);
+      color: #120909;
+      font-weight: 800;
+      font-size: 1.2rem;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 900;
-      box-shadow: inset 0 -6px 0 #f43f5e;
-      transition: all 0.15s ease-in-out;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+      transition: all 0.3s;
     }
-    .juice-link:hover {
-      box-shadow: inset 0 -24px 0 #f43f5e;
-      color: #ffffff;
+    
+    .phone-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(212, 175, 55, 0.5);
     }
-    .archive-section {
-      margin-top: 80px;
+    
+    /* Content */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      padding: 60px 0;
     }
-    .section-title {
-      font-size: 1rem;
-      font-family: monospace;
-      color: #888888;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 32px;
+    
+    .main-text {
+      font-size: 1.05rem;
+      color: #e5e7eb;
     }
-    .archive-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    
+    .main-text h2 {
+      font-size: 1.9rem;
+      color: #fff;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
     }
-    .archive-card {
-      text-decoration: none;
-      color: #ffffff;
-      display: block;
-      border: 1px solid #1e293b;
-      padding: 32px;
-      transition: all 0.2s ease;
+    
+    .main-text p {
+      margin-bottom: 22px;
     }
-    .archive-card:hover {
-      border-color: #f43f5e;
-      background-color: #0f172a;
+    
+    /* Price list */
+    .price-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      margin: 30px 0;
     }
-    .archive-card h3 {
-      font-size: 1.4rem;
-      font-weight: 900;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    .archive-card p {
-      color: #888888;
-      font-size: 0.95rem;
-    }
-    footer {
-      border-top: 1px solid #1e293b;
-      padding-top: 32px;
+    
+    .price-item {
       display: flex;
       justify-content: space-between;
-      font-size: 0.8rem;
-      font-family: monospace;
-      color: #475569;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
     }
-    footer a { color: #475569; text-decoration: none; }
-    footer a:hover { color: #f43f5e; }
-    @media(max-width: 768px) {
-      header { flex-direction: column; gap: 20px; align-items: flex-start; }
-      h1 { font-size: 2.2rem; }
-      .archive-card { padding: 20px; }
-      .archive-card h3 { font-size: 1.2rem; }
+    .price-item:last-child { border-bottom: none; }
+    .price-item-name { font-weight: 700; color: #fff; }
+    .price-item-val { color: var(--accent); font-weight: 700; }
+    
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .widget {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    
+    .widget-title {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 16px;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding-bottom: 8px;
+    }
+    
+    /* Reviews */
+    .review-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    
+    .reviewer-name { font-weight: 700; font-size: 0.9rem; }
+    .review-stars { color: var(--accent); }
+    .review-content { font-size: 0.88rem; color: var(--text-sub); }
+    
+    /* Footer */
+    footer {
+      background: #090404;
+      border-top: 1px solid var(--border-color);
+      padding: 50px 0;
+      color: var(--text-sub);
+      font-size: 0.9rem;
+    }
+    
+    footer .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    @media (max-width: 768px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .hero-sec h1 { font-size: 2.2rem; }
+      nav { display: none; }
     }
   </style>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "마포 마사지 이벤트",
+    "description": "공덕역 및 마포역 일대 고달픈 직장인들의 스트레스를 해결하는 정직한 가성비 힐링 마사지 추천.",
+    "telephone": "010-6279-0862",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "서울시 마포구 공덕동"
+    }
+  }
+  </script>
 </head>
 <body>
-  <div class="wrapper">
-    <header>
-      <a href="/" class="brand">STREET.KR</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="label">// BRUTALIST GRID SYSTEM</div>
-      <h1>영화 미학 지식 저널 및 아카이브</h1>
-      <div class="article-body">
-        환영합니다. 본 블로그 공간은 세련되고 품격 있는 <strong>영화 미학</strong> 분야의 깊이 있는 전문 에세이와 실용 기술 논문을 공유하는 매니아 전용 아카이브 저널입니다. 아래의 최근 기사 목록을 통해 새로운 지식의 지평을 넓혀 보시기 바랍니다.
-      </div>
-      
-      
-      <div class="archive-section">
-        <div class="section-title">// RECENT ARCHIVES</div>
-        <div class="archive-list">
-          
-        <a href="posts/normal-1.html" class="archive-card">
-          <h3>안드레이 타르코프스키의 장시간 촬영(Long Take)과 조형적 침묵의 미학</h3>
-          <p>세계적인 영화 거장 안드레이 타르코프스키 감독이 고집했던 롱테이크 샷 기법은 단순히 기술적인 길이를 넘어 관객의 물리적 시간 감각을 정지시키고 인위적인 미장센 속 조형적 침묵을 체...</p>
-        </a>
-      
 
-        <a href="posts/normal-2.html" class="archive-card">
-          <h3>고전 공포영화 음향 효과 속 숨겨진 악기: 워터폰(Waterphone)의 금속성 불협화음</h3>
-          <p>스크린 위에 깃드는 기괴하고 날카로운 서스펜스를 조율할 때 필수로 채용되는 특수 타악기인 워터폰은 청동 실린더 내부에 차 있는 물의 양에 따라 공진 주파수가 극적으로 변하여 사람의...</p>
-        </a>
-      
+  <header>
+    <div class="container header-inner">
+      <a href="/" class="logo">MAPO<span>MASSAGE</span></a>
+      <nav>
+        <a href="/">홈</a>
+        <a href="about.html">소개</a>
+        <a href="blog.html">블로그</a>
+      </nav>
+    </div>
+  </header>
 
-        <a href="posts/normal-3.html" class="archive-card">
-          <h3>스탠리 큐브릭 감독의 대칭 구도: 1점 투시 도식(One-Point Perspective)이 주는 심리적 압박</h3>
-          <p>완벽주의적인 시네아스트 스탠리 큐브릭이 애용했던 화면 정중앙의 1점 투시 수렴 대칭 구도는 관객의 시선을 강제로 가두어 인공적인 폐쇄 공포와 거역할 수 없는 심리적 억압 효과를 자...</p>
-        </a>
-      
+  <section class="hero-sec">
+    <div class="container">
+      <div style="display:inline-block; font-size:0.75rem; letter-spacing:0.3em; color:var(--accent); font-family:monospace; margin-bottom:16px; text-transform:uppercase">// MAPO HEALING INSIDER</div>
+      <h1>마포 마사지 이벤트</h1>
+      <p>마포, 공덕 비즈니스맨들의 누적된 피로 한방에 극복! 10년 거주 로컬 자영업자 브로가 100% 검증 완료한 투명 정찰제 마사지 이벤트 혜택 리포트.</p>
+      <a href="tel:010-6279-0862" class="phone-btn">
+        <span>📞 실시간 정찰 예약: 010-6279-0862</span>
+      </a>
+    </div>
+  </section>
 
-        <a href="posts/juice-1.html" class="archive-card">
-          <h3>시네필과 영화 예술 매니아들이 엄선 정리한 화곡 셔츠룸 상세 정보 리포트</h3>
-          <p>빛과 어둠의 정교한 시각 프레임과 기하학적 미장센의 깊은 울림을 공부하며 시각 예술의 안목을 키워가는 현대의 시네필분들이라면, 극장 밖 현실 세계에서 느끼는 여가의 만족도와 품격 ...</p>
-        </a>
+  <div class="container content-grid">
+    <main class="main-text">
+      <h2>마포, 공덕 오피스 상권, 실패 없는 리얼 힐링 테라피</h2>
+      <p>어서 와라 형님들! 이 동네 마포역과 공덕역 일대에서 장사한 지 10년이 다 되어가는 로컬 브로다. 솔직히 마포 공덕 상권은 대기업 본사랑 금융사 오피스가 대거 밀집해 있어서 직장인들의 스트레스와 야근 피로가 서울에서 가장 깊게 누적되는 공간이다. 퇴근 후나 점심시간 끝자락에 "야, 몸 좀 쑤시는데 가성비 좋고 깔끔한 테라피 샵에서 한 시간 푹 쉬다 올까" 하고 힐링 스팟을 많이 찾곤 한다.</p>
       
-
-        <a href="posts/juice-2.html" class="archive-card">
-          <h3>시네필과 영화 예술 매니아들이 엄선 정리한 화곡 셔츠룸 상세 정보 리포트</h3>
-          <p>빛과 어둠의 정교한 시각 프레임과 기하학적 미장센의 깊은 울림을 공부하며 시각 예술의 안목을 키워가는 현대의 시네필분들이라면, 극장 밖 현실 세계에서 느끼는 여가의 만족도와 품격 ...</p>
-        </a>
+      <p>하지만 이 동네를 잘 모르는 아우들은 대충 인터넷에 뜨는 허위 저가 광고나 정체불명의 광고대행사 낚시 찌라시에 낚여서 아무 데나 들어갔다가, 낡은 시설에 엉망인 케어 실력으로 기분만 더 잡치고 청구서 폭탄(주차비 덤탱이, 억지 서비스 유도비 등)을 맞고 나오는 낭패를 다반사로 겪는다. 나 또한 숱하게 당하면서 내상을 제대로 입었던 경험이 많다. 돈 아까운 것도 문제지만 하루의 힐링 기분을 완전히 망쳐버리는 그 불쾌함은 겪어본 사장님들만 알 거다. 그래서 내가 마포에서 100% 안전하고 위생적인 정찰제 마사지 명소들을 엄선해 가이드 리포트를 개설했다.</p>
       
+      <h2>마포 마사지의 3대 특화 강점</h2>
+      <p>첫째, **품격이 다른 호텔식 1인 프라이빗 룸:** 바쁜 현대 비즈니스맨들이 눈치 보지 않고 온전하게 혼자서 깊은 릴랙싱을 즐길 수 있도록 세련되고 독립된 샤워 공간과 1인실 위주로 구성되어 있다.</p>
+      <p>둘째, **싹싹하고 숙련된 프로 관리사:** 단순 시간 때우기식 어설픈 케어는 일절 사절이다. 정교하게 교육을 마치고 신체의 뭉친 맥을 짚어주는 수준 높은 힐러들만 대거 포진해 있다.</p>
+      <p>셋째, **사전 주대 약속 및 투명 정찰제:** 현장에서 1원도 유선 합의와 다른 금액이 적힌 청구서를 보실 일이 없도록, 예약 상황을 칼같이 엄수하여 신뢰를 최우선으로 가동한다.</p>
+      
+      <div class="price-box">
+        <h3 style="color:#fff; margin-bottom:16px; font-size:1.2rem;">📊 마포 마사지 정찰제 가격표</h3>
+        <div class="price-item">
+          <span class="price-item-name">비즈니스 릴랙싱 케어 (60분 기준)</span>
+          <span class="price-item-val">80,000원 ~</span>
+        </div>
+        <div class="price-item">
+          <span class="price-item-name">스페셜 딥티슈 테라피 (90분 아로마 정밀 케어)</span>
+          <span class="price-item-val">120,000원 ~</span>
+        </div>
+        <div class="price-item">
+          <span class="price-item-name">VIP 스파 패키지 (120분 전신+풋케어 통합)</span>
+          <span class="price-item-val">160,000원 ~</span>
         </div>
       </div>
+
+      <h2>실패 없는 예약 동선 꿀팁</h2>
+      <p>마포에서 진정한 힐링 자리를 안전하게 확보하기 위해선 무조건 **"주말 및 저녁 피크타임 사전 다이렉트 유선 조율"**이 필수다. 퇴근 직후나 점심시간은 방이 순식간에 차서 웨이팅이 30분을 훌쩍 넘기기 때문이다. 직영 업장 실장과 다이렉트로 연결하여 빠르게 룸을 세팅하고 보장받을 수 있는 양심 직통망 `010-6279-0862`로 먼저 조율하시길 바란다. 10년 차 로컬 브로의 자존심을 걸고 형님들의 고단한 피로를 눈탱이 없이 시원하게 날려 주겠다.</p>
     </main>
-    <footer>
-      <div>&copy; 2026 STREET.KR. ALL RIGHTS RESERVED.</div>
-      <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
+
+    <aside class="sidebar">
+      <div class="widget">
+        <h3 class="widget-title">📞 24시간 실시간 예약 및 문의</h3>
+        <p style="font-size:0.9rem; color:var(--text-sub); margin-bottom:16px;">마포의 넘버원 양심 가이드! 정직한 주대로 최고의 힐링 방을 매칭해 드립니다.</p>
+        <a href="tel:010-6279-0862" class="phone-btn" style="width:100%; justify-content:center;">010-6279-0862</a>
       </div>
-    </footer>
+
+      <div class="widget">
+        <h3 class="widget-title">💬 직장인 형님들의 리얼 만족 후기</h3>
+        
+        <div class="review-card">
+          <div class="review-header">
+            <span class="reviewer-name">공덕IT맨</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-content">"매일 공덕역 근처 사무실에서 스트레스 받다가 가이드 보고 예약해서 다녀왔는데, 룸 시설 엄청 고급스럽고 케어 실력이 여태 가본 곳 중 최고였습니다."</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="reviewer-name">마포자영업</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-content">"일이 고돼서 온몸이 다 아팠는데 90분 스페셜 테라피 받고 완전 새 몸으로 태어난 기분입니다. 정찰제 지켜줘서 1원도 낭비 없었네요."</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="reviewer-name">일러스트작가</span>
+            <span class="review-stars">★★★★☆</span>
+          </div>
+          <p class="review-content">"혼자 힐링하러 퇴근 직전에 가봤는데, 위생 상태 정말 뽀송뽀송하고 친절하게 맞춰줘서 힐링 제대로 하고 갑니다. 📞010-6279-0862 강추해요."</p>
+        </div>
+      </div>
+    </aside>
   </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <p><strong>마포 마사지 이벤트</strong> | 대표번호: <a href="tel:010-6279-0862" style="color:var(--accent);">010-6279-0862</a></p>
+        <p style="font-size:0.8rem; margin-top:8px; opacity:0.7;">본 콘텐츠는 정식 가이드 수칙을 엄격히 준수하여 성인에 한해서만 정보 이용 권한이 보장됩니다.</p>
+      </div>
+      <p>&copy; 2026 마포 마사지 이벤트. All Rights Reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
