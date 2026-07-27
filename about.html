@@ -1,391 +1,80 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마포 마사지 이벤트 — 정보 & 상세</title>
-    <meta name="description" content="마포 마사지 이벤트 상세 정보. 림프순환 & 스포츠 케어, 365일 1인샵 운영. 예약은 010-6279-0862 직통.">
-    <meta name="keywords" content="마포 마사지 정보, 마포 마사지 이벤트 안내, 마포 1인샵 상세, 마포 림프마사지 정보, 마포 스포츠마사지 상세, 마포 가성비 마사지 정보">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-acid-yellow">
-    <link rel="canonical" href="https://t3b05-mp-massage-evt.vercel.app/info">
-    <meta property="og:title" content="마포 마사지 이벤트 — 정보 & 상세">
-    <meta property="og:description" content="마포 마사지 이벤트 상세 정보. 형이 직접 케어. 림프순환 & 스포츠 타파. 예약은 010-6279-0862">
-    <meta property="og:image" content="https://t3b05-mp-massage-evt.vercel.app/og-image.jpg">
-    <meta property="og:url" content="https://t3b05-mp-massage-evt.vercel.app/info">
-    <style>
-        /* RESET + BASE */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-        }
-        body {
-            font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
-            background: #1a1a1a;
-            color: #f0f0f0;
-            line-height: 1.3;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-        }
-        a {
-            color: #f5e942;
-            text-decoration: none;
-            transition: all 0.1s linear;
-        }
-        a:hover {
-            color: #ff3300;
-            background: #f5e942;
-            padding: 0 0.1em;
-            margin: 0 -0.1em;
-        }
-        img, svg {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        ul, ol {
-            list-style: none;
-        }
-
-        /* TYPOGRAPHY — RAW & OVER */
-        h1, h2, h3, h4 {
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.04em;
-            word-break: break-word;
-        }
-        h1 {
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            line-height: 0.85;
-            background: #f5e942;
-            color: #1a1a1a;
-            padding: 0.1em 0.15em;
-            display: inline-block;
-            margin-bottom: 0.3em;
-        }
-        h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            border-bottom: 6px solid #f5e942;
-            padding-bottom: 0.2em;
-            margin-bottom: 0.5em;
-            display: inline-block;
-        }
-        h3 {
-            font-size: clamp(1.3rem, 3vw, 2rem);
-            background: #333;
-            padding: 0.2em 0.4em;
-            display: inline-block;
-        }
-        h4 {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            font-weight: 700;
-        }
-        p, li, blockquote, small {
-            font-size: clamp(0.95rem, 2vw, 1.15rem);
-            max-width: 65ch;
-            font-weight: 400;
-        }
-        strong {
-            color: #f5e942;
-            font-weight: 900;
-        }
-
-        /* LAYOUT — DENSE + A */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem 1rem;
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        .flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .block {
-            display: block;
-        }
-
-        /* NAVIGATION — RAW BRUTAL */
-        nav {
-            background: #0d0d0d;
-            padding: 0.8rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 4px solid #f5e942;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-        nav .logo {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: #f5e942;
-            text-transform: uppercase;
-            letter-spacing: -0.03em;
-        }
-        nav .logo a {
-            color: inherit;
-        }
-        nav .logo a:hover {
-            background: transparent;
-            color: #ff3300;
-            padding: 0;
-        }
-        nav ul {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-        nav ul li a {
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            padding: 0.3em 0.6em;
-            border: 2px solid transparent;
-        }
-        nav ul li a:hover {
-            border-color: #f5e942;
-            background: #f5e942;
-            color: #1a1a1a;
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-        .hamburger span {
-            width: 30px;
-            height: 4px;
-            background: #f5e942;
-        }
-
-        /* HERO */
-        .hero {
-            padding: 3rem 1rem 2rem;
-            background: #222;
-            border-bottom: 8px solid #f5e942;
-        }
-        .hero h1 {
-            margin-bottom: 0.3em;
-        }
-        .hero p {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            font-weight: 700;
-            margin-bottom: 0.5em;
-        }
-
-        /* CARDS */
-        .card {
-            background: #2a2a2a;
-            border: 3px solid #444;
-            padding: 1.2rem;
-            transition: 0.1s;
-        }
-        .card:hover {
-            border-color: #f5e942;
-        }
-        .card h3 {
-            background: transparent;
-            padding: 0;
-            display: block;
-        }
-
-        /* TEL-LINK */
-        .tel-link {
-            display: inline-block;
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: #f5e942;
-            color: #1a1a1a;
-            padding: 0.3em 0.8em;
-            border: 4px solid #1a1a1a;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            margin: 0.5em 0;
-        }
-        .tel-link:hover {
-            background: #ff3300;
-            color: #fff;
-            border-color: #f5e942;
-            padding: 0.3em 0.8em;
-        }
-
-        /* FAQ */
-        .faq-item {
-            border-bottom: 2px solid #444;
-            padding: 1rem 0;
-        }
-        .faq-item h4 {
-            cursor: pointer;
-            position: relative;
-        }
-        .faq-item h4::after {
-            content: "+";
-            position: absolute;
-            right: 0;
-            font-size: 1.5rem;
-            color: #f5e942;
-        }
-        .faq-item.active h4::after {
-            content: "−";
-        }
-        .faq-item p {
-            margin-top: 0.5rem;
-            display: none;
-        }
-        .faq-item.active p {
-            display: block;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #0d0d0d;
-            border-top: 4px solid #f5e942;
-            padding: 2rem 1rem;
-            text-align: center;
-            font-size: 0.85rem;
-        }
-
-        /* RESPONSIVE 768 */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background: #0d0d0d;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                padding: 1rem;
-                border-bottom: 4px solid #f5e942;
-            }
-            nav ul.show {
-                display: flex;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .grid-2, .grid-3 {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: clamp(2rem, 6vw, 3.5rem);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>마포 마사지 이벤트 정보</title>
+  <meta name="description" content="마포 지역 마사지 이벤트에 대한 상세 정보와 이용 전 체크리스트, 상황별 고려사항을 제공합니다.">
+  <meta name="keywords" content="마포 마사지, 마사지 이벤트, 마포 마사지 정보, 마포 지역 마사지 이용 가이드">
+  <link rel="canonical" href="https://t3b05-mp-massage-evt.maphoshirts.com/about.html">
+  <meta property="og:title" content="마포 마사지 이벤트 정보">
+  <meta property="og:description" content="마포 지역 마사지 이벤트에 대한 세부 정보와 현명한 선택을 위한 체크리스트를 확인하세요.">
+  <meta property="og:url" content="https://t3b05-mp-massage-evt.maphoshirts.com/about.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://t3b05-mp-massage-evt.maphoshirts.com/placeholder">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo"><a href="https://t3b05-mp-massage-evt.vercel.app/">마포 마사지</a></div>
-        <ul>
-            <li><a href="https://t3b05-mp-massage-evt.vercel.app/">홈</a></li>
-            <li><a href="https://t3b05-mp-massage-evt.vercel.app/info">정보</a></li>
-            <li><a href="https://t3b05-mp-massage-evt.vercel.app/event">이벤트</a></li>
-            <li><a href="https://t3b05-mp-massage-evt.vercel.app/contact">연락</a></li>
-        </ul>
-        <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('show')">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+  <header class="n-txt-wig2">
+    <nav class="nav-present">
+      <ul>
+        <li><a href="/home">홈</a></li>
+        <li><a href="/events">이벤트</a></li>
+        <li><a href="/info">정보</a></li>
+        <li><a href="/contact">연락처</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>정보 & 상세</h1>
-                <p><strong>마포 마사지 이벤트</strong> — 형이 직접 알려주는 모든 것.</p>
-                <p>림프순환 + 스포츠 케어, 365일 1인샵. 가성비 끝판왕. 예약은 <a href="tel:010-6279-0862" class="tel-link">010-6279-0862</a></p>
-            </div>
-        </section>
+  <main>
+    <!-- 히어로 섹션 -->
+    <section class="t-grid-msxh">
+      <h1>마포 마사지 이벤트 상세 정보</h1>
+      <p>마포에서 진행되는 다양한 마사지 이벤트를 한눈에 파악하고, 현명하게 선택할 수 있도록 돕는 가이드입니다. 최신 트렌드와 지역 특성을 반영해 투명하게 정리했습니다.</p>
+      <p>이 페이지에서는 이벤트 종류, 이용 전 체크리스트, 시간대·인원별 고려사항, 지역별 특화 서비스까지 총망라합니다. 언제든지 필요할 때 빠르게 찾아볼 수 있도록 구성했습니다.</p>
+    </section>
 
-        <section class="container">
-            <h2>📍 위치 & 운영</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>주소</h3>
-                    <p>서울 마포구 와우산로 29길 12 (서교동) <br>지하철 홍대입구역 3번 출구 도보 5분</p>
-                </div>
-                <div class="card">
-                    <h3>운영 시간</h3>
-                    <p>매일 10:00~22:00 (연중무휴) <br>마지막 예약 21:00 <br>전화 예약 권장: <strong>010-6279-0862</strong></p>
-                </div>
-            </div>
-        </section>
+    <!-- 이벤트 종류 소개 -->
+    <section class="x-grid-o7te">
+      <h2>주요 마사지 이벤트 종류</h2>
+      <p>마포에서는 계절별 프로모션, 신규 오픈 기념 할인, 멤버십 전용 특혜 등 다양한 형태의 이벤트가 열립니다. 각각의 이벤트는 제공되는 서비스와 할인 범위가 다르니, 원하는 체험에 맞춰 선택하는 것이 좋습니다.</p>
+      <p>예를 들어, 여름철에는 수분 회복과 근육 이완을 위한 아쿠아 테라피와 연계된 이벤트가 많이 진행됩니다. 반면 겨울에는 따뜻한 온열 마사지와 스파 패키지를 결합한 프로모션이 인기를 끕니다.</p>
+    </section>
 
-        <section class="container">
-            <h2>💆 서비스 라인업</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>림프 순환</h3>
-                    <p>60분 / 70,000원<br>독소 배출 + 부종 케어. 형 스타일.</p>
-                </div>
-                <div class="card">
-                    <h3>스포츠 케어</h3>
-                    <p>90분 / 100,000원<br>근육 뭉침 타파. 운동 후엔 이게 정답.</p>
-                </div>
-                <div class="card">
-                    <h3>커스텀 콤보</h3>
-                    <p>120분 / 130,000원<br>림프 + 스포츠 믹스. 니 맘대로 골라.</p>
-                </div>
-            </div>
-        </section>
+    <!-- 이용 전 체크리스트 -->
+    <section class="x-grid-o7te">
+      <h2>이용 전 체크리스트</h2>
+      <p>이벤트를 이용하기 전에 확인해야 할 기본 항목을 정리했습니다. 먼저, 이벤트 기간과 적용 가능한 시간대를 반드시 확인하세요. 일부 프로모션은 특정 요일이나 시간에만 적용됩니다.</p>
+      <p>다음으로, 예약 시 요구되는 최소 인원 및 사전 결제 방식, 취소 정책을 검토합니다. 특히, 할인 쿠폰이나 멤버십 포인트 사용 여부는 사전에 확인해두면 불필요한 오해를 예방할 수 있습니다.</p>
+    </section>
 
-        <section class="container">
-            <h2>🔥 이벤트 — 지금만</h2>
-            <div class="flex">
-                <div class="card" style="flex:1;">
-                    <h3>신규 방문 20% 할인</h3>
-                    <p>처음 오는 형한테 20% 펑! 전화에서 "정보 보고 왔다" 말하면 적용.</p>
-                </div>
-                <div class="card" style="flex:1;">
-                    <h3>재방문 10% 할인</h3>
-                    <p>한 번 경험한 형은 또 오게 돼. 자동 할인.</p>
-                </div>
-                <div class="card" style="flex:1;">
-                    <h3>친구 추천 이벤트</h3>
-                    <p>형 친구 데려오면 둘 다 10% 추가 할인. 서로 윈윈.</p>
-                </div>
-            </div>
-            <p style="margin-top:1rem;">* 모든 이벤트는 중복 적용 안 됨. 예약 시 꼭 확인해.</p>
-        </section>
+    <!-- 상황별 고려사항 -->
+    <section class="x-grid-o7te">
+      <h2>상황별 고려사항</h2>
+      <p><strong>인원 규모</strong>에 따라 적합한 이벤트가 달라집니다. 1인 또는 커플을 위한 개인 맞춤 이벤트는 프라이버시와 집중도가 높아 만족도가 높으며, 그룹 예약 시 할인율이 높아지는 경우가 많습니다.</p>
+      <p><strong>시점</strong> 역시 중요한 요소입니다. 평일 업무 후와 주말 오후는 예약률이 다르므로, 원하는 시간대가 빨리 마감될 수 있습니다. 사전 예약을 권장하고, 가능한 경우 알림 서비스를 활용해 최신 정보를 받아보세요.</p>
+    </section>
 
-        <section class="container">
-            <h2>❓ 자주 묻는 질문</h2>
-            <div class="faq-item active">
-                <h4>예약은 어떻게 하나요?</h4>
-                <p>직통 전화 <strong>010-6279-0862</strong>로 바로 걸어. 톡이나 SNS는 안 받아. 전화가 제일 빠르고 확실해.</p>
-            </div>
-            <div class="faq-item">
-                <h4>1인샵이 맞나요?</h4>
-                <p>당연. 형 혼자 운영해. 그래서 프라이빗하고, 케어 집중도가 다름. 다른 데랑 비교하지 마.</p>
-            </div>
-            <div class="faq-item">
-                <h4>림프랑 스포츠 차이가 뭔가요?</h4>
-                <p>림프는 몸속 노폐물 빼는 거, 스포츠는 근육 풀고 재활. 둘 다 받으면 시너지 폭발. 콤보 추천.</p>
-            </div>
-            <div class="faq-item">
-                <h4>
+    <!-- 지역별 특화 서비스 -->
+    <section class="x-grid-o7te">
+      <h2>마포 지역 특화 서비스</h2>
+      <p>마포는 예술과 문화가 공존하는 지역이라, 감각적인 인테리어와 힐링 분위기를 제공하는 마사지 샵이 다수 있습니다. 특히, 홍대 인근에는 스트레스 해소를 위한 비스트로 스타일의 스파가 인기를 끌고 있습니다.</p>
+      <p>또한, 서교동·합정동 일대는 전통적인 한방 마사지와 현대적인 테크놀로지를 결합한 서비스가 활발히 운영되고 있습니다. 각 샵마다 독특한 시그니처 프로그램을 확인하고, 자신의 필요에 맞는 선택을 하세요.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="x-grid-o7te">
+      <h2>자주 묻는 질문</h2>
+      <ul class="v-list-w0yd">
+        <li><strong>Q: 이벤트 할인은 언제까지 적용되나요?</strong><br>대부분의 이벤트는 사전 공지된 종료 일자까지 적용됩니다. 마감 직전에는 빠르게 예약이 차기 때문에, 가능한 한 빨리 예약을 완료하는 것이 안전합니다.</li>
+        <li><strong>Q: 예약 취소 시 환불은 어떻게 이루어지나요?</strong><br>취소 정책은 샵마다 다르지만, 일반적으로 24시간 이전에 취소하면 전액 환불이 가능합니다. 일부 이벤트는 부분 환불이나 포인트 적립 정책을 적용하니, 사전 확인이 필요합니다.</li>
+        <li><strong>Q: 쿠폰이나 포인트는 중복 사용할 수 있나요?</strong><br>대부분의 경우 쿠폰과 포인트는 동시에 사용할 수 없으며, 우선 적용되는 항목이 정해져 있습니다. 이용 전 상세 약관을 확인해 주세요.</li>
+        <li><strong>Q: 남녀 공동 이용이 가능한가요?</strong><br>일부 커플 전용 이벤트는 남녀 동시 이용을 허용하지만, 개인 전용 프로그램은 성별 구분 없이 이용 가능합니다. 예약 시 예약 유형을 명확히 전달하면 됩니다.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="n-txt-wig2">
+    <p>© 2026 마포 마사지 이벤트 가이드. 모든 권리 보유.</p>
+  </footer>
 </body>
 </html>
