@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (1/2) · t3b05-mp-massage-evt</title>
+  <meta name="description" content="t3b05-mp-massage-evt에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://t3b05-mp-massage-evt.maphoshirts.com/posts.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* RESET + BASE */
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ html { scroll-behavior: smooth; }
+ body {
+ font-family: 'Courier New', Courier, 'IBM Plex Mono', 'SF Mono', 'Consolas', monospace;
+ background: #111111;
+ color: #e0e0e0;
+ font-size: 16px;
+ line-height: 1.4;
+ padding: 0;
+ -webkit-font-smoothing: antialiased;
+ }
+ a { color: #00ff41; text-decoration: underline wavy 2px #00ff41; text-underline-offset: 6px; }
+ a:hover { color: #ffff00; background: #111; text-decoration-color: #ffff00; }
+ img, svg { max-width: 100%; height: auto; display: block; }
+ ul, ol { list-style: none; }
+
+ /* TYPOGRAPHY — RAW & OVER */
+ h1, h2, h3, h4 {
+ font-family: 'Impact', 'Arial Black', 'Helvetica Bold', 'Franklin Gothic Heavy', sans-serif;
+ font-weight: 900;
+ letter-spacing: -0.02em;
+ text-transform: uppercase;
+ color: #ffff00;
+ text-shadow: 4px 4px 0 #00ff41, 8px 8px 0 #111;
+ line-height: 0.9;
+ }
+ h1 { font-size: clamp(3.5rem, 15vw, 7rem); margin-bottom: 8px; }
+ h2 { font-size: clamp(2.8rem, 10vw, 5rem); margin-bottom: 8px; }
+ h3 { font-size: clamp(2rem, 7vw, 3.2rem); margin-bottom: 6px; }
+ h4 { font-size: clamp(1.4rem, 5vw, 2.2rem); margin-bottom: 4px; }
+
+ p, li, blockquote, small { font-size: 1.1rem; line-height: 1.5; }
+ strong { color: #00ff41; font-weight: 900; }
+
+ /* LAYOUT — DENSE + ASYMMETRIC */
+ body {
+ padding: 16px 24px;
+ }
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ display: flex;
+ flex-direction: column;
+ gap: 40px;
+ }
+ section {
+ padding: 24px;
+ border: 4px solid #00ff41;
+ background: #1a1a1a;
+ transform: rotate(-0.5deg) skewX(-0.3deg);
+ box-shadow: 12px 12px 0 rgba(0,255,65,0.2);
+ transition: all 0.1s ease;
+ }
+ section:hover {
+ transform: rotate(0deg) skewX(0deg);
+ box-shadow: 16px 16px 0 #ffff00;
+ border-color: #ffff00;
+ }
+ /* 특정 섹션 일부러 더 비틀기 */
+ section.hero {
+ transform: rotate(1.2deg) scale(1.01);
+ border-width: 6px;
+ border-color: #ffff00;
+ background: #0f0f0f;
+ }
+ section.hero:hover {
+ transform: rotate(0deg) scale(1);
+ }
+
+ /* HEADER / NAV */
+ header {
+ border: none;
+ padding: 0;
+ background: none;
+ box-shadow: none;
+ transform: none;
+ }
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 8px 0 16px 0;
+ border-bottom: 4px solid #00ff41;
+ }
+ .logo {
+ font-family: 'Impact', 'Arial Black', sans-serif;
+ font-size: 2.2rem;
+ color: #ffff00;
+ text-shadow: 2px 2px 0 #00ff41;
+ letter-spacing: -0.03em;
+ line-height: 1;
+ }
+ .logo span { color: #00ff41; background: #111; padding: 0 4px; }
+ .nav-links {
+ display: flex;
+ gap: 24px;
+ align-items: center;
+ }
+ .nav-links a {
+ font-family: 'Impact', 'Arial Black', sans-serif;
+ font-size: 1.3rem;
+ text-transform: uppercase;
+ color: #ffff00;
+ text-decoration: none;
+ border: 3px solid transparent;
+ padding: 4px 8px;
+ transition: 0.05s linear;
+ }
+ .nav-links a:hover {
+ border-color: #00ff41;
+ color: #111;
+ background: #00ff41;
+ transform: scale(0.9) rotate(-2deg);
+ }
+ .hamburger {
+ display: none;
+ flex-direction: column;
+ gap: 6px;
+ cursor: pointer;
+ border: none;
+ background: none;
+ padding: 8px;
+ }
+ .hamburger span {
+ display: block;
+ width: 36px;
+ height: 6px;
+ background: #ffff00;
+ border: 2px solid #00ff41;
+ }
+ .mobile-menu {
+ display: none;
+ flex-direction: column;
+ gap: 8px;
+ padding: 24px 0 16px 0;
+ border-top: 4px solid #ffff00;
+ margin-top: 12px;
+ }
+ .mobile-menu a {
+ font-family: 'Impact', 'Arial Black', sans-serif;
+ font-size: 1.8rem;
+ color: #00ff41;
+ text-decoration: none;
+ padding: 8px 0;
+ border-bottom: 2px solid #333;
+ }
+
+ /* HERO */
+ .hero-grid {
+ display: grid;
+ grid-template-columns: 1fr 1.2fr;
+ gap: 16px;
+ align-items: center;
+ }
+ .hero-visual {
+ background: repeating-linear-gradient(45deg, #ffff00 0px, #ffff00 8px, #111111 8px, #111111 16px);
+ border: 6px solid #00ff41;
+ min-height: 260px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 4rem;
+ font-weight: 900;
+ color: #111;
+ text-shadow: none;
+ transform: rotate(-1deg) skewX(-0.5deg);
+ box-shadow: -12px 12px 0 #00ff41;
+ position: relative;
+ }
+ .hero-visual::after {
+ content: '💆‍♂️🔥';
+ font-size: 5rem;
+ filter: drop-shadow(8px 8px 0 #ffff00);
+ }
+ .hero-text h1 {
+ margin-bottom: 4px;
+ }
+ .hero-text p {
+ font-size: 1.4rem;
+ color: #ccc;
+ border-left: 8px solid #ffff00;
+ padding-left: 16px;
+ margin: 16px 0;
+ font-style: italic;
+ }
+ .btn-raw {
+ display: inline-block;
+ background: #111;
+ color: #ffff00;
+ font-family: 'Impact', 'Arial Black', sans-serif;
+ font-size: 1.8rem;
+ padding: 12px 32px;
+ border: 5px solid #ffff00;
+ text-decoration: none;
+ text-transform: uppercase;
+ transition: 0.06s linear;
+ transform: rotate(-1deg);
+ }
+ .btn-raw:hover {
+ background: #ffff00;
+ color: #111;
+ border-color: #00ff41;
+ transform: rotate(2deg) scale(1.02);
+ box-shadow: 8px 8px 0 #00ff41;
+ }
+
+ /* CARDS */
+ .card-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+ gap: 16px;
+ }
+ .card {
+ background: #161616;
+ border: 4px solid #ffff00;
+ padding: 24px 16px;
+ transform: rotate(0.5deg) skewX(-0.2deg);
+ transition: 0.05s linear;
+ box-shadow: 8px 8px 0 rgba(0,255,65,0.3);
+ }
+ .card:hover {
+ transform: rotate(-1deg) skewX(0.5deg);
+ border-color: #00ff41;
+ box-shadow: 12px 12px 0 #ffff00;
+ }
+ .card h4 { font-size: 1.6rem; color: #ffff00; text-shadow: 2px 2px 0 #00ff41; }
+ .card .stars { color: #ffff00; font-size: 1.8rem; letter-spacing: 2px; }
+ .card .date { color: #888; font-size: 0.85rem; border-top: 2px solid #333; padding-top: 8px; margin-top: 8px; display: block; }
+ .card blockquote {
+ font-style: normal;
+ border-left: 6px solid #00ff41;
+ padding-left: 12px;
+ margin: 12px 0;
+ color: #ddd;
+ }
+
+ /* UGC REVIEWS */
+ .review-author { display: flex; justify-content: space-between; align-items: center; }
+ .review-author .nick { font-weight: bold; color: #00ff41; font-size: 1.2rem; }
+
+ /* FOOTER */
+ footer {
+ border-top: 6px solid #ffff00;
+ padding-top: 24px;
+ margin-top: 16px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ align-items: center;
+ font-size: 0.9rem;
+ color: #aaa;
+ }
+ footer a.phone-brutal {
+ font-family: 'Impact', 'Arial Black', sans-serif;
+ font-size: 2rem;
+ color: #00ff41;
+ text-decoration: none;
+ border: 4px solid #00ff41;
+ padding: 8px 24px;
+ background: #111;
+ transform: rotate(-1deg);
+ }
+ footer a.phone-brutal:hover {
+ background: #00ff41;
+ color: #111;
+ border-color: #ffff00;
+ transform: rotate(2deg);
+ }
+ .copyright {
+ font-size: 0.8rem;
+ background: #222;
+ padding: 4px 12px;
+ border: 2px solid #444;
+ }
+
+ /* RESPONSIVE */
+ @media (max-width: 768px) {
+ body { padding: 12px; }
+ .container { gap: 24px; }
+ section { padding: 16px; }
+ .nav-links { display: none; }
+ .hamburger { display: flex; }
+ .mobile-menu.open { display: flex; }
+ .hero-grid { grid-template-columns: 1fr; }
+ .hero-visual { min-height: 200px; }
+ .hero-visual::after { font-size: 3.5rem; }
+ .btn-raw { font-size: 1.4rem; padding: 10px 20px; }
+ .card-grid { grid-template-columns: 1fr; }
+ footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+ footer a.phone-brutal { font-size: 1.6rem; padding: 6px 16px; }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (1/2) · t3b05-mp-massage-evt">
+  <meta property="og:description" content="t3b05-mp-massage-evt에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://t3b05-mp-massage-evt.maphoshirts.com/posts.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <nav>
+ <div class="logo">☠️<span>마포</span>마사지<span>EVT</span></div>
+ <div class="nav-links">
+ <a href="#">홈</a>
+ <a href="#">이벤트</a>
+ <a href="#">리뷰</a>
+ 
+ </div>
+ <button class="hamburger" aria-label="메뉴 열기" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+ 
+ </button>
+ </nav>
+ <div id="mobileMenu" class="mobile-menu">
+ <a href="#">홈</a>
+ <a href="#">이벤트</a>
+ <a href="#">리뷰</a>
+ 
+ </div>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 39개 · 1/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/compare-001-1lcqn8z.html">마포 마사지 이벤트 vs 마포 마사지 이벤트 비교</a>
+        <p class="post-item__summary">마포 지역에서 제공되는 다양한 마사지 이벤트는 피로에 지친 현대인들에게 활력을 불어넣는 훌륭한 선택지입니다. 마포 마사지 이벤트는 단순히 가격을 할인해 주는 방식을 넘어 시간대별로 혜택을 다르게 구</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260705-612.html">마포 마사지 이벤트 쥐어짜기 전 손님 전용 특가의 실상</a>
+        <p class="post-item__summary">마포 마사지 이벤트 중 '첫 방문 특가'라는 이름으로 붙는 타이틀의 함정을 분해한다. 흔히 신규 고객을 위한 파격적 할인으로 포장되지만 실상은 다르다. 매장 입장에서 첫 발을 내딛는 손님은 정보가 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0001.html">마포 마사지 이벤트 활용한 구글 틈새 키워드 트래픽 외환 거래 전략</a>
+        <p class="post-item__summary">도심 속 힐링을 찾던 방문객이 우연히 마포 마사지 이벤트 정보를 접하고 이를 디지털 마케팅의 지표로 삼는 사례가 늘고 있습니다. 단순히 서비스를 소비하는 차원을 넘어 온라인상의 검색 흐름을 분석하는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0002.html">마포 마사지 이벤트 정보 분석과 구글 알고리즘 감점 치료 및 백링크 수술실</a>
+        <p class="post-item__summary">많은 운영자가 검색 순위가 낮아지면 단순히 콘텐츠의 양을 늘려야 한다고 오해하곤 합니다. 하지만 마포 마사지 이벤트 관련 키워드가 검색 결과에서 밀려나는 이유는 양적 부족보다 질적인 알고리즘 페널티</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0003.html">마포 마사지 이벤트와 자세히 보기</a>
+        <p class="post-item__summary">웹사이트의 권위를 나타내는 도메인 지수를 유지하려면 명확한 조건 충족이 선행되어야 합니다. 마포 마사지 이벤트 페이지가 검색 상단에 노출되려면 링크의 신뢰도와 사용자 체류 시간이 조화를 이뤄야 합니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0004.html">마포 마사지 이벤트 활용하여 동대문에서 피로 해소하는 방법</a>
+        <p class="post-item__summary">일상의 피로를 씻어내기 위해 고민할 때, 가장 먼저 떠오르는 휴식처가 어디인가요? 많은 분이 접근성과 쾌적한 시설을 중심으로 마사지 샵을 고르지만, 정작 무엇을 기준으로 삼아야 할지 막막할 때가 많</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0005.html">마포 마사지 이벤트 검색 시 마주하는 도메인 신뢰도와 보증 카드 발급 절차 분석</a>
+        <p class="post-item__summary">정보의 홍수 속에서 마포 마사지 이벤트 관련 사이트를 탐색하다 보면 알 수 없는 도메인 신용 한도 문제에 직면할 때가 있습니다. 많은 사용자가 단순히 광고성 문구에 의존하지만 실제로는 웹 사이트의 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0006.html">마포 마사지 이벤트 찾다가 발견하는 홍대 합정 단체 가라오케 예약 및 가격 비교</a>
+        <p class="post-item__summary">연말이나 회식 시즌이 되면 마포 마사지 이벤트 정보를 찾던 이들이 자연스럽게 주변 유흥 시설을 검색합니다. 홍대와 합정 지역은 다양한 가라오케 업체가 밀집해 있어 선택의 폭이 매우 넓습니다. 하지만</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0007.html">마포 마사지 이벤트 예약만큼 중요한 단체 회식용 대형 룸 노래방 선정과 비즈니스 매칭</a>
+        <p class="post-item__summary">많은 이들이 마포 마사지 이벤트 정보를 찾다가 단체 회식 장소를 정하며 흔히 하는 실수가 있습니다. 바로 공간의 규모와 장비 상태를 직접 확인하지 않고 단순히 지인의 추천만 믿고 예약하는 일입니다.</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0008.html">마포 마사지 이벤트 관심자가 주목해야 할 마포 합정 인디 소셜 라운지 가이드와 파티 활용</a>
+        <p class="post-item__summary">최근 마포 마사지 이벤트 관련 커뮤니티에서는 조용하고 프라이빗한 모임을 선호하는 흐름이 이어지고 있습니다. 인디 소셜 라운지는 일반적인 유흥업소와는 다르게 소규모 인원이 밀도 높은 대화를 나누기에 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0009.html">마포 마사지 이벤트 활용법과 만족도 높은 셔츠룸 예약 절차 가이드</a>
+        <p class="post-item__summary">갑작스러운 회식 자리나 거래처 접대를 준비하다 보면 예기치 못한 상황에서 혼란을 겪기 마련입니다. 특히 익숙하지 않은 장소를 찾을 때 마포 마사지 이벤트 정보를 찾다가 경로를 이탈해 당황하는 경우가</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0010.html">마포 마사지 이벤트 속 오해와 진실 합정 셔츠룸 단골들이 뽑은 핫플 매거진</a>
+        <p class="post-item__summary">많은 이들이 유흥 문화에 대해 잘못된 편견을 가지고 마포 마사지 이벤트 정보를 찾다가 방향을 잃곤 합니다. 일부는 특정 업종이 항상 어두운 분위기일 것이라고 단정하지만, 이는 최근의 변화를 전혀 반</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0011.html">마포 마사지 이벤트 관련 투명한 마포 유흥 투명 정찰제 가격 정보 디렉토리</a>
+        <p class="post-item__summary">투명한 비용 체계, 확실한 예약 보장, 정중한 접객 서비스가 뒷받침될 때 만족스러운 유흥 문화가 형성됩니다. 마포 마사지 이벤트 소식을 접하며 무분별하게 방문하기보다는 이제는 정찰제 기반의 정보를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0012.html">마포 마사지 이벤트 확인 전 필독 추천 셔츠룸 사이트 비교 체크리스트</a>
+        <p class="post-item__summary">여러분은 유흥 정보를 찾을 때 어떤 기준을 가지고 선택하시나요? 마포 마사지 이벤트 관련 내용을 확인하다가 막연한 정보에 휘둘려 시간만 낭비한 경험은 누구나 한 번쯤 있을 것입니다. 이제는 막연한 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0013.html">마포 마사지 이벤트 활용 전 숙지할 마포 셔츠룸 예약 시 눈탱이 피하는 법</a>
+        <p class="post-item__summary">주변에서 흔히 접하는 마포 마사지 이벤트 정보를 무턱대고 신뢰하기보다는 우선 소비자 보호 관점에서 접근해야 합니다. 유흥이나 여가 시설을 예약할 때 가장 문제가 되는 지점은 사전에 고지되지 않은 추</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0014.html">마포 마사지 이벤트 정보 분석하며 비교하는 마포 코인노래방 방음 시설 비교 가이드</a>
+        <p class="post-item__summary">도심 속 여가 시간을 보내기 위해 마포 마사지 이벤트 검색을 즐기는 분들 중에는 코인노래방을 찾는 수요도 많습니다. 조용한 환경에서 음악을 즐기기 위해서는 무엇보다 방음 성능이 뛰어난 시설을 고르는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0015.html">마포 마사지 이벤트 사이트 운영자가 알려주는 구글 인덱싱 속도 초고속 광회선 대역폭 최적화</a>
+        <p class="post-item__summary">웹사이트의 성장은 콘텐츠의 양보다 검색 엔진에 얼마나 빠르게 노출되는지에 달려 있습니다. 많은 운영자가 마포 마사지 이벤트 관련 페이지를 구축하고도 인덱싱 실패로 고민하는데, 이는 대부분 서버의 응</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0016.html">마포 마사지 이벤트 운영을 위한 구글 신뢰 지수 모발이식 솔루션 활용법</a>
+        <p class="post-item__summary">디지털 세상에서 웹사이트의 권위는 검색 엔진이 부여하는 신뢰 지수에 의해 결정됩니다. 비록 분야는 다르더라도 마포 마사지 이벤트 홍보를 진행하면서 구글 신뢰 지수 모발이식 솔루션에서 제시하는 최신 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0498.html">마포 마사지 이벤트와 연계한 VIP 단체 모임을 위한 마포 럭셔리 단체 가라오케 예약 가이드</a>
+        <p class="post-item__summary">일부에서는 고급 유흥 시설을 방문하는 것이 단순히 화려함만을 추구하는 행위라고 오해하곤 합니다. 하지만 실제로는 긴 업무를 마친 비즈니스 파트너들과의 소통과 유대감을 강화하는 중요한 장소가 되기도 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0499.html">마포 마사지 이벤트 활용 전략과 구글 봇 정밀 검진 및 크롤 버짓 밀착 간호의 상관관계</a>
+        <p class="post-item__summary">성공적인 웹 환경을 구축하기 위해서는 기술적 요구사항을 완벽히 충족하는 것이 첫걸음입니다. 마포 마사지 이벤트 관련 콘텐츠를 다룰 때도 사용자 경험을 저해하지 않는 안정적인 서버 인프라가 필수적입니</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <span class="pager__current">1</span>
+      <a class="pager__link" href="posts-2.html">2</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
